@@ -13,9 +13,12 @@ class Person:
 
 p1 = Person('룰루', 3)
 p2 = Person('질럿', 100)
+print(p1.name) #룰루
+print(p2.age) #100
+print(p1.check_age()) #False
+print(p2.check_age()) #True
 
 Person.birth_year = 2
-print(Person.birth_year)
+print(Person.birth_year) #2
 
-print(p1.check_age())
-print(p2.check_age())
+
