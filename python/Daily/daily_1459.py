@@ -8,14 +8,15 @@ class Doggy:
         Doggy.num_of_dogs += 1
         Doggy.birth_of_dogs += 1
     
-    def bark(self):
+    @staticmethod
+    def bark():
         print('왈왈')
 
     def __del__(self):
         Doggy.num_of_dogs -= 1
 
     @classmethod
-    def get_status(self):
+    def get_status(cls):
         print(Doggy.birth_of_dogs)
         print(Doggy.num_of_dogs)
 

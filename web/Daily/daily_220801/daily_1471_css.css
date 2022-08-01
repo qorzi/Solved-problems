@@ -1,0 +1,19 @@
+
+/* id 값으로 스타일을 받았다면 id 앞에 #을 붙인다. */
+#large-box {
+  border: 2px solid rgb(0, 0, 0); 
+  width : 400px; 
+  height: 400px;
+}
+
+#medium-box {
+  border : 2px red dashed;
+  width : 200px; 
+  height: 200px;
+}
+
+#small-box {
+  border: 2px blue dotted; 
+  width : 100px; 
+  height: 100px;
+}
