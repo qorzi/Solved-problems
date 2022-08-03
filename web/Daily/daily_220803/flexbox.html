@@ -1,0 +1,57 @@
+<style>
+  .flex-container {
+    /* 정렬하려고하는 부모 요소에 선언 */
+    display: flex;
+    /* inline-flex는 block -> inline 처럼 횡으로 가지는 남는 공간이 사라짐. 컨텐츠 공간만 차지 */
+    display: inline-flex;
+
+    /* 요소들이 강제로 한줄에 배치되게 할 건지 여부 설정 */
+    /* 한줄에 배치 */
+    flex-wrap: nowrap;
+    /* 넘치면 다음줄 */
+    flex-wrap: wrap;
+    /* 아래부터 위로 좌측아래가 첫 아이탬(최신글이 위로 쌓인다.) */
+    flex-wrap: wrap-reverse;
+
+    /* 메인축 방향 설정, 쌓이는 방향 설정 (메인축의 방향만 바뀜) */
+    /* 시작 아이템부터 쌓아 나가는 방향 */
+    /* 오른쪽으로 */
+    flex-direction: row;
+    /* 왼쪽으로 */
+    flex-direction: row-reverse;
+    /* 아래로 */
+    flex-direction: column;
+    /* 위로 */
+    flex-direction: column-reverse;
+
+    /* flex-direction과 flex-wrap의 shorthand */
+    flex-flow: column wrap;
+
+    /* 메인축 정렬 */
+    /* 시작 부분부터 쌓기 */
+    justify-content: flex-start;
+    /* 끝나는 부분부터 쌓기 */
+    justify-content: flex-end;
+    /* 중앙 정렬 */
+    justify-content: center;
+    /* 컨탠츠 사이 공간이 동일 */
+    justify-content: space-between;
+    /* 컨탠츠 양 옆 공간을 포함해서 동일 비율 1:2:2:1 */
+    justify-content: space-around;
+    /* 컨탠츠 양 옆 공간이 동일 1:1:1 */
+    justify-content: space-evenly;
+
+    /* 교차축 정렬 */
+    /* cross 축으로 늘림 */
+    align-items: stretch;
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+    /* 글자 라인에 맞춰 정렬 */
+    align-items: baseline;
+
+    /* 주의! 이 녀석은 사실 여기가 아니라 아이템 속에 있어야함 */
+    /* item 개별 하다에만 aling 설정 */
+    align-self: auto;
+  }
+</style>
