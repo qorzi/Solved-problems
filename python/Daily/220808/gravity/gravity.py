@@ -25,7 +25,7 @@ for _ in range(T):
         Box_gravity_off += [tmp_list]
     # print(Box_gravity_off)
 
-    #90도 회전하고 중력이 적용된 박스 가로 M 세로 N
+    #90도 회전하고 중력이 적용된 박스에서 각 column 쌓인 박스 수
     Box_gravity_on = []
     for i in range(M):
         tmp_column_count = 0
