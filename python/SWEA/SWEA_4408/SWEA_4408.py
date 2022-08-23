@@ -30,4 +30,7 @@ for tc in range(1, T+1):
                 room_str = room_str.replace(tmp_str, '')
 
     # 겹치는 범위는?....
+
+
+
     print(f'#{tc} {min_cnt}')
