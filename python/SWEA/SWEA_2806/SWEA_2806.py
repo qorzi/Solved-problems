@@ -3,45 +3,33 @@ sys.stdin = open('sample_input.txt', 'r')
 
 def f(idx, visited):
     global ans
-    global sel
-    visited = list(visited)
+    visited_tmp = visited[:]
 
     if idx == N:
-        if len(sel) == N:
-            ans += 1
+        ans += 1
         return
 
     for i in range(N):
-        if visited[idx][i] == 0:
-            sel.append(i)
-            print(sel)
-            for j in range(idx, N):
-                visited[j][i] = 1
-                if i + (j - idx) < N:
-                    visited[j][i+(j-idx)] = 1
-                if i - (j - idx) >= 0:
-                    visited[j][i-(j-idx)] = 1
-            tmp_visit = visited
+        if visited_tmp[idx][i] == 0:
+            visit(idx, i, visited_tmp, 1)
             print(visited)
-            print(id(tmp_visit))
-            f(idx+1, tmp_visit)
-            sel.pop()
-            print(sel)
-            visited = tmp_visit
-            # for j in range(idx, N):
-            #     visited[j][i] = 0
-            #     if i + (j - idx) < N:
-            #         visited[j][i+(j-idx)] = 0
-            #     if i - (j - idx) >= 0:
-            #         visited[j][i-(j-idx)] = 0
+            f(idx+1, visited_tmp)
+
+            visit(idx, i , visited_tmp, -1)
             print(visited)
-            print(id(tmp_visit))
+def visit(idx, i, visited_tmp, num):
+    for j in range(idx, N):
+        visited_tmp[j][i] += num
+        if i + (j - idx) < N:
+            visited_tmp[j][i + (j - idx)] += num
+        if i - (j - idx) >= 0:
+            visited_tmp[j][i - (j - idx)] += num
 
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
     visited = [[0]*N for _ in range(N)]
-    sel = []
+    visited_tmp = []
     ans = 0
 
     f(0, visited)
