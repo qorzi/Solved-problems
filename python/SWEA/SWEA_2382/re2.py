@@ -20,11 +20,15 @@ for tc in range(1, T+1):
         warn_bounder[i][0] = -1
         warn_bounder[i][N - 1] = -1
 
+    # on/off 스위치 추가
+    for microbe in microbe_lst:
+        microbe += [1]
+
     # 이차원 배열에 개체수와 방향을 담고 해당 좌표를 다른 리스트로 담는다.
     for microbe in microbe_lst:
-        i, j, cnt, go = microbe
+        i, j, cnt, go, switch = microbe
         exist[i][j] = [cnt, go]
-        ij_lst += [[i, j]]
+        ij_lst += [[i, j, switch]]
     print(ij_lst)
 
     for _ in range(time):
@@ -45,7 +49,7 @@ for tc in range(1, T+1):
                     cnt += ex_cnt
                     exist[i + di][j + dj] = [cnt, dir_num]
                     tmp_ij += [i+di, j+dj]
-                    # 중복 좌표 제거
+                    # 중복 좌표 off
                     re_dx = ij_lst.index([i + di, j + dj])
                     try:
                         ij_lst.remove(re_dx)
