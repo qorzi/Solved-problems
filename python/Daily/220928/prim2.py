@@ -22,4 +22,4 @@ for _ in range(E):
     adjM[u][v] = w
     adjM[v][u] = w
 
-print(prim1(0, V)) # MST 가중치의 합이 리턴
+print(prim2(0, V)) # MST 가중치의 합이 리턴

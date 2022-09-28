@@ -4,26 +4,29 @@ sys.stdin = open('sample_input.txt', 'r')
 T = int(input())
 for tc in range(1, T+1):
     N, M = map(int, input().split())
-    visited = set() # 리스트보다 셋이 빠름, 셋 안에는 튜플만 들어감
+    visited = [0]*(M+11)*2 # not in은 느리니까, 0과 M+10을 고려해서 보다 크게 설정
+    visited_num = (M+11)*2
     total = []
     cnt = -1
     ans = 0
 
     start = [[N, cnt]]
     while start:
-        print('start', start)
+        # print('start', start)
         current = start.pop(0)
         cnt = current.pop()
         cnt += 1
         current_num = len(current)
-        print('->', current, '카운트', cnt)
+        # print('->', current, '카운트', cnt)
         for _ in range(current_num):
             tmp = []
             now = current.pop(0)
-            visited.add(now)
-            print('visited', now, '->', visited)
+            if visited[now]:
+                continue
+            visited[now] = 1
+            # print('visited', now, '->', visited)
 
-            if now == M:
+            if now == M: # 목표값에 도달 했으면 루프에서 나오기
                 ans = cnt
                 start = []
                 break
@@ -39,12 +42,12 @@ for tc in range(1, T+1):
                 elif j == 3:
                     go = now - 10
 
-                if (go not in visited) and go >= 1:
+                if 1 <= go < visited_num and visited[go] == 0:
                     tmp.append(go)
             if tmp:
-                tmp = list(set(tmp))
+                tmp = list(set(tmp)) # 중복 제거
                 tmp.append(cnt)
-                print(now, '경로', tmp,'마지막은 카운트')
+                # print(now, '경로', tmp,'마지막은 카운트')
                 start.append(tmp)
 
     print('#{} {}'.format(tc, ans))
