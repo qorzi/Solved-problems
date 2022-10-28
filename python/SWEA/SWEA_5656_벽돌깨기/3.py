@@ -21,14 +21,11 @@ def gravity(matrix):
     print('rotate')
     for i in range(W):
         lst = matrix.pop()
-        tmp = []
-        for j in lst:
-            if j:
-                tmp.append(j)
-                num = H - len(tmp)
-                for _ in range(num):
-                    tmp.append(0)
-        matrix.append(tmp)
+        new_lst = list(filter(lambda x: x == 0, lst))
+        num = H - len(new_lst)
+        for _ in range(num):
+            new_lst.append(0)
+        matrix.append(new_lst)
     new_matrix = list(map(list, zip(*rotate_matrix)))[::-1]
     print('gravity')
     check(new_matrix)
