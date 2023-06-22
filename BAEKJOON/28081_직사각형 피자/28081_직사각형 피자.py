@@ -1,19 +1,19 @@
 w, h, k = map(int, input().split())
 n = int(input())
-cut_hor = [0]+list(map(int, input().split()))+[w]
+cut_ver = [0] + list(map(int, input().split())) + [h]
 m = int(input())
-cut_ver = [0]+list(map(int, input().split()))+[h]
+cut_hor = [0] + list(map(int, input().split())) + [w]
 
-pizza = []
-for i in range(n+1):
-    width = cut_hor[i+1] - cut_hor[i]
-    for j in range(m+1):
-        height = cut_ver[j+1] - cut_ver[j]
-        pizza.append(width*height)
+diff_hor = sorted([cut_hor[i+1] - cut_hor[i] for i in range(m+1)])
+diff_ver = sorted([cut_ver[j+1] - cut_ver[j] for j in range(n+1)])
 
 cnt = 0
-for piece in pizza:
-    if piece <= k:
-        cnt += 1
+i, j = 0, n
+while i < m+1 and j >= 0:
+    if diff_hor[i] * diff_ver[j] <= k:
+        cnt += j + 1
+        i += 1
+    else:
+        j -= 1
 
 print(cnt)
