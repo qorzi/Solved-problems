@@ -26,7 +26,7 @@ def solution(n, lighthouse):
                 stack.append(i)
                 graph[i].remove(node)  # 자식 노드에서 부모 노드로의 이동을 삭제
 
-    # DP - stack에는 DFS의 역순이 저장되어 있고, leaf에서 부터 root(1)까지의 순서
+    # DP - reverse에는 DFS의 역순이 저장되어 있고, leaf에서 부터 root(1)까지의 순서
     while reverse:
         node = reverse.pop()
         dp[node][1] = 1  # 불을 켠다
