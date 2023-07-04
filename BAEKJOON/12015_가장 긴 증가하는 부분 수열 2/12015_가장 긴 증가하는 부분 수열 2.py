@@ -19,7 +19,6 @@ for i in range(1, n):
                 s = m + 1  # 타겟보다 작아야하니까 s를 움직임
             else:
                 e = m
-        print(s, e)
         tail[s] = nums[i]
 
 print(length)
