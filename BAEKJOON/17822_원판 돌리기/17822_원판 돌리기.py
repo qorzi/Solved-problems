@@ -37,7 +37,7 @@ for x, d, k in commands:
                 if circles[i][j] > 0:
                     total += circles[i][j]
                     count += 1
-        average = total / count
+        average = total / count if total > 0 else 0
         for i in range(n):
             for j in range(m):
                 if circles[i][j] > 0:
