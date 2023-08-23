@@ -20,6 +20,9 @@ void grow()
 
 int main()
 {
+    ios_base::sync_with_stdio(false); // 버퍼동기화 끄기
+    cin.tie(NULL);                    // cout 방출 해제
+
     cin >> M >> N;
     grid = vector<int>(2 * M - 1, 1);
 
